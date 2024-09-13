@@ -28,6 +28,7 @@ class BikeStationsViewModel: ObservableObject {
         
         // Listen for store state changes
         store.statePublisher
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] state in
                 self?.isLoading = state.isLoading
                 self?.errorMessage = state.errorMessage
@@ -35,7 +36,8 @@ class BikeStationsViewModel: ObservableObject {
             }
             .store(in: &cancellables)
         
-        $selectedSegment.sink { segment in
+        $selectedSegment
+            .sink { segment in
             self.handleSegmentChange(segment)
         }.store(in: &cancellables)
     }
@@ -84,15 +86,15 @@ class BikeStationsViewModel: ObservableObject {
 
             do {
                 // Await the location request
-                let location = try await locationService.requestLocation()
+                let location = try await self?.locationService.requestLocation()
                 // Handle success on the main thread
-                DispatchQueue.main.async {
+                await MainActor.run { [weak self] in
                     self?.store.dispatch(.setLoading(false))
                     self?.store.dispatch(.setUserLocation(location))
                 }
             } catch {
                 // Handle error on the main thread
-                DispatchQueue.main.async {
+                await MainActor.run { [weak self] in
                     self?.store.dispatch(.setLoading(false))
                     self?.store.dispatch(.setErrorMessage(Constants.Messages.errorFailedToFetchLocation + " " + ":\(error.localizedDescription)"))
                 }
@@ -115,12 +117,13 @@ class BikeStationsViewModel: ObservableObject {
             self?.store.dispatch(.setLoading(true))
             do {
                 let stations = try await self?.networkService.fetchBikeStations()
-                DispatchQueue.main.async {
+                await MainActor.run { [weak self] in
                     self?.store.dispatch(.setLoading(false))
                     self?.store.dispatch(.setStations(stations ?? []))
                 }
+                
             } catch {
-                DispatchQueue.main.async {
+                await MainActor.run { [weak self] in
                     self?.store.dispatch(.setLoading(false))
                     self?.store.dispatch(.setErrorMessage(Constants.Messages.errorFailedToFetchLocation + " " + ":\(error.localizedDescription)"))
                 }

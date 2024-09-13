@@ -77,19 +77,27 @@ class BikeStationsViewModel: ObservableObject {
     }
     
     func requestLocation() {
-        self.store.dispatch(.setLoading(true))
-        locationService.requestLocation { [weak self] result in
-            DispatchQueue.main.async {
-                self?.store.dispatch(.setLoading(false))
-                switch result {
-                case .success(let location):
+        
+        Task { [weak self] in
+            // Set loading state to true
+            self?.store.dispatch(.setLoading(true))
+
+            do {
+                // Await the location request
+                let location = try await locationService.requestLocation()
+                // Handle success on the main thread
+                DispatchQueue.main.async {
+                    self?.store.dispatch(.setLoading(false))
                     self?.store.dispatch(.setUserLocation(location))
-                case .failure(let error):
+                }
+            } catch {
+                // Handle error on the main thread
+                DispatchQueue.main.async {
+                    self?.store.dispatch(.setLoading(false))
                     self?.store.dispatch(.setErrorMessage(Constants.Messages.errorFailedToFetchLocation + " " + ":\(error.localizedDescription)"))
                 }
             }
         }
-        
         
         locationService.authorizationStatus
             .sink { [weak self] status in
@@ -103,14 +111,17 @@ class BikeStationsViewModel: ObservableObject {
     }
 
     private func fetchBikeStations() {
-        self.store.dispatch(.setLoading(true))
-        networkService.fetchBikeStations { [weak self] result in
-            DispatchQueue.main.async {
-                self?.store.dispatch(.setLoading(false))
-                switch result {
-                case .success(let stations):
-                    self?.store.dispatch(.setStations(stations))
-                case .failure(let error):
+        Task { [weak self] in
+            self?.store.dispatch(.setLoading(true))
+            do {
+                let stations = try await self?.networkService.fetchBikeStations()
+                DispatchQueue.main.async {
+                    self?.store.dispatch(.setLoading(false))
+                    self?.store.dispatch(.setStations(stations ?? []))
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self?.store.dispatch(.setLoading(false))
                     self?.store.dispatch(.setErrorMessage(Constants.Messages.errorFailedToFetchLocation + " " + ":\(error.localizedDescription)"))
                 }
             }

@@ -9,31 +9,28 @@ import Foundation
 import CoreLocation
 
 protocol NetworkServiceProtocol {
-    func fetchBikeStations(completion: @escaping (Result<[BikeStation], Error>) -> Void)
+    func fetchBikeStations() async throws -> [BikeStation]
 }
 
 class NetworkService: NetworkServiceProtocol {
-    func fetchBikeStations(completion: @escaping (Result<[BikeStation], Error>) -> Void) {
+    func fetchBikeStations() async throws -> [BikeStation] {
         let url = URL(string: Constants.API.bikeStationsURL)!
+
+        // Perform the network request asynchronously
+        let (data, response) = try await URLSession.shared.data(from: url)
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            
-            guard let data = data else {
-                completion(.failure(NSError(domain: "No data", code: 0, userInfo: nil)))
-                return
-            }
-            
-            do {
-                let decodedResponse = try JSONDecoder().decode(NetworkResponse.self, from: data)
-                completion(.success(decodedResponse.network.stations))
-                debugPrint(decodedResponse.network)
-            } catch {
-                completion(.failure(error))
-            }
-        }.resume()
+        // Optional: Check for HTTP errors
+        if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode) {
+            throw NSError(domain: "Invalid response", code: httpResponse.statusCode, userInfo: nil)
+        }
+        
+        // Decode the JSON response
+        do {
+            let decodedResponse = try JSONDecoder().decode(NetworkResponse.self, from: data)
+            debugPrint(decodedResponse.network)
+            return decodedResponse.network.stations
+        } catch {
+            throw error // Rethrow decoding errors
+        }
     }
 }

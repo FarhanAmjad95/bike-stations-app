@@ -11,37 +11,34 @@ import Combine
 
 protocol LocationServiceProtocol {
     var authorizationStatus: AnyPublisher<CLAuthorizationStatus, Never> { get }
-    func requestLocation(completion: @escaping (Result<CLLocation, Error>) -> Void)
+    func requestLocation() async throws -> CLLocation
 }
 
 class LocationService: NSObject, LocationServiceProtocol, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
     private let authorizationStatusSubject = PassthroughSubject<CLAuthorizationStatus, Never>()
-    
-    // CLLocationManagerDelegate - Location updates
-    private var locationCompletion: ((Result<CLLocation, Error>) -> Void)?
-    
+    private var locationContinuation: CheckedContinuation<CLLocation, Error>?
+
     override init() {
         super.init()
         locationManager.delegate = self
     }
     
-    
     var authorizationStatus: AnyPublisher<CLAuthorizationStatus, Never> {
         return authorizationStatusSubject.eraseToAnyPublisher()
     }
     
-    func requestLocation(completion: @escaping (Result<CLLocation, Error>) -> Void) {
+    func requestLocation() async throws -> CLLocation {
         locationManager.requestWhenInUseAuthorization()
         
-        // Check if location services are enabled
-        DispatchQueue.main.async {
-            if CLLocationManager.locationServicesEnabled() {
-                self.locationManager.requestLocation()
-                self.locationCompletion = completion  // Store the completion closure
-            } else {
-                completion(.failure(LocationError.servicesDisabled))
+        return try await withCheckedThrowingContinuation { continuation in
+            guard CLLocationManager.locationServicesEnabled() else {
+                continuation.resume(throwing: LocationError.servicesDisabled)
+                return
             }
+            
+            self.locationContinuation = continuation
+            locationManager.requestLocation()
         }
     }
     
@@ -50,24 +47,22 @@ class LocationService: NSObject, LocationServiceProtocol, CLLocationManagerDeleg
         authorizationStatusSubject.send(status)
     }
     
-    
     // MARK: - CLLocationManagerDelegate
-    
+
     // Success: Did Update Locations
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("print my current location", locations.first!)
         if let location = locations.first {
-            locationCompletion?(.success(location))  // Return the location in success
+            locationContinuation?.resume(returning: location)
         } else {
-            locationCompletion?(.failure(LocationError.noLocationFound))
+            locationContinuation?.resume(throwing: LocationError.noLocationFound)
         }
-        locationCompletion = nil  // Clear the stored completion
+        locationContinuation = nil
     }
 
     // Failure: Did Fail with Error
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        locationCompletion?(.failure(error))  // Pass the error to completion
-        locationCompletion = nil  // Clear the stored completion
+        locationContinuation?.resume(throwing: error)
+        locationContinuation = nil
     }
     
     // MARK: - Custom Location Errors

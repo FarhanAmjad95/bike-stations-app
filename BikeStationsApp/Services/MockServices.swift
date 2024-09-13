@@ -16,9 +16,16 @@ class MockNetworkService: NetworkServiceProtocol {
         self.result = result
     }
     
-    func fetchBikeStations(completion: @escaping (Result<[BikeStation], Error>) -> Void) {
+    func fetchBikeStations() async throws -> [BikeStation] {
         if let result = result {
-            completion(result)
+            switch result {
+            case .success(let stations):
+                return stations
+            case .failure(let error):
+                throw error
+            }
+        } else {
+            throw NSError(domain: "MockNetworkServiceError", code: 0, userInfo: [NSLocalizedDescriptionKey: "No result available"])
         }
     }
 }
@@ -37,17 +44,19 @@ class MockLocationService: LocationServiceProtocol {
     }
    
     // Simulates requesting the current location
-    func requestLocation(completion: @escaping (Result<CLLocation, Error>) -> Void) {
-        // Simulate success or failure based on the mock properties
-        if let mockLocation = mockLocation {
-            completion(.success(mockLocation))
-        } else if let mockError = mockError {
-            completion(.failure(mockError))
-        } else {
-            // Provide a default location for testing
-            let location = CLLocation(latitude: Constants.Location.defaultLatitude, longitude: Constants.Location.defaultLongitude)
-            mockLocation = location
-            completion(.success(location)) // Vienna coordinates
+    func requestLocation() async throws -> CLLocation {
+        return try await withCheckedThrowingContinuation { continuation in
+            if let mockLocation = mockLocation {
+                continuation.resume(returning: mockLocation)
+            } else if let mockError = mockError {
+                continuation.resume(throwing: mockError)
+            } else {
+                // Provide a default location for testing
+                let location = CLLocation(latitude: Constants.Location.defaultLatitude, longitude: Constants.Location.defaultLongitude)
+                mockLocation = location
+                continuation.resume(returning: location) // Vienna coordinates
+            }
         }
     }
 }
+

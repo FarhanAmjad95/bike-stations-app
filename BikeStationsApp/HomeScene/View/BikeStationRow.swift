@@ -9,16 +9,27 @@ import SwiftUI
 
 struct BikeStationRow: View {
     let station: BikeStationModel
-
+    let onViewMap: () -> Void
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(station.name)
-                .font(.headline)
-            Text(Constants.ContentView.bikes + ": \(station.bikesAvailable)")
-                .font(.subheadline)
-            Text( Constants.ContentView.emptySlots + ": \(station.emptySlots)")
-                .font(.subheadline)
+        HStack {
+            VStack(alignment: .leading) {
+                Text(station.name)
+                    .font(.headline)
+                Text(Constants.BikeStationsView.bikes + ": \(station.bikesAvailable)")
+                    .font(.subheadline)
+                Text( Constants.BikeStationsView.emptySlots + ": \(station.emptySlots)")
+                    .font(.subheadline)
+            }
+            Spacer()
+            Button(action: {
+                onViewMap()
+            }) {
+                Text(Constants.BikeStationsView.viewOnMap)
+                    .foregroundColor(.blue)
+            }
         }
+        
     }
 }
 

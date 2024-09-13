@@ -30,7 +30,7 @@ struct Constants {
         static let appleMapsBaseURL = "http://maps.apple.com/"
     }
     
-    struct ContentView {
+    struct BikeStationsView {
         static let navigationTitle = "Bike Stations"
         static let selectSegment = "Select a segment"
         static let viewOnMap = "View on Map"

@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  BikeStationsView.swift
 //  BikeStationApp
 //
 //  Created by Farhan Amjad on 13.09.24.
@@ -15,7 +15,7 @@ struct BikeStationsView: View {
         NavigationView {
             VStack {
                 if viewModel.isLoading {
-                    ProgressView(Constants.ContentView.loadingMessage)
+                    ProgressView(Constants.BikeStationsView.loadingMessage)
                         .progressViewStyle(CircularProgressViewStyle())
                 } else if let errorMessage = viewModel.errorMessage, viewModel.selectedSegment == .third {
                     VStack{
@@ -36,7 +36,7 @@ struct BikeStationsView: View {
                         .foregroundColor(.blue)
                     }
                 } else {
-                    Picker(Constants.ContentView.selectSegment, selection: $viewModel.selectedSegment) {
+                    Picker(Constants.BikeStationsView.selectSegment, selection: $viewModel.selectedSegment) {
                         ForEach(Segment.allCases) { segment in
                             Text(segment.rawValue).tag(segment)
                         }
@@ -45,20 +45,13 @@ struct BikeStationsView: View {
                     .padding()
                     
                     List(viewModel.bikeStations) { station in
-                        HStack {
-                            BikeStationRow(station: station)
-                            Spacer()
-                            Button(action: {
-                                viewModel.openMap(for: station)
-                            }) {
-                                Text(Constants.Messages.viewOnMap)
-                                    .foregroundColor(.blue)
-                            }
+                        BikeStationRow(station: station) {
+                            viewModel.openMap(for: station)
                         }
                     }
                 }
             }
-            .navigationBarTitle(Constants.ContentView.navigationTitle)
+            .navigationBarTitle(Constants.BikeStationsView.navigationTitle)
             .refreshable {
                 viewModel.refreshStations()
             }

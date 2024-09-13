@@ -13,7 +13,7 @@
 		BD62B2F02C94A62A00ED1DBE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD62B2EF2C94A62A00ED1DBE /* Response.swift */; };
 		BD62B2FA2C94A85900ED1DBE /* MockServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD506882C93A1DB0005B340 /* MockServices.swift */; };
 		BDD506532C93A0CF0005B340 /* BikeStationAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD506522C93A0CF0005B340 /* BikeStationAppApp.swift */; };
-		BDD506552C93A0CF0005B340 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD506542C93A0CF0005B340 /* ContentView.swift */; };
+		BDD506552C93A0CF0005B340 /* BikeStationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD506542C93A0CF0005B340 /* BikeStationsView.swift */; };
 		BDD506572C93A0D10005B340 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD506562C93A0D10005B340 /* Assets.xcassets */; };
 		BDD5065A2C93A0D10005B340 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD506592C93A0D10005B340 /* Preview Assets.xcassets */; };
 		BDD5066E2C93A0D10005B340 /* BikeStationAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5066D2C93A0D10005B340 /* BikeStationAppUITests.swift */; };
@@ -52,7 +52,7 @@
 		BD62B2EF2C94A62A00ED1DBE /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		BDD5064F2C93A0CF0005B340 /* BikeStationsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeStationsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD506522C93A0CF0005B340 /* BikeStationAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStationAppApp.swift; sourceTree = "<group>"; };
-		BDD506542C93A0CF0005B340 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BDD506542C93A0CF0005B340 /* BikeStationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStationsView.swift; sourceTree = "<group>"; };
 		BDD506562C93A0D10005B340 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDD506592C93A0D10005B340 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BDD5065F2C93A0D10005B340 /* BikeStationsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BikeStationsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,7 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				BD62B2F42C94A76000ED1DBE /* State */,
-				BDD506542C93A0CF0005B340 /* ContentView.swift */,
+				BDD506542C93A0CF0005B340 /* BikeStationsView.swift */,
 				BD62B2E92C94A27000ED1DBE /* ErrorView.swift */,
 				BD62B2EB2C94A2C000ED1DBE /* BikeStationRow.swift */,
 			);
@@ -316,6 +316,7 @@
 			);
 			mainGroup = BDD506462C93A0CF0005B340;
 			packageReferences = (
+				BDEC01A42C94CDB500B9E97D /* XCRemoteSwiftPackageReference "SwiftLint" */,
 			);
 			productRefGroup = BDD506502C93A0CF0005B340 /* Products */;
 			projectDirPath = "";
@@ -360,7 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD62B2EC2C94A2C000ED1DBE /* BikeStationRow.swift in Sources */,
-				BDD506552C93A0CF0005B340 /* ContentView.swift in Sources */,
+				BDD506552C93A0CF0005B340 /* BikeStationsView.swift in Sources */,
 				BDD506812C93A1450005B340 /* AppState.swift in Sources */,
 				BDD5067D2C93A0E30005B340 /* NetworkService.swift in Sources */,
 				BDD5067F2C93A11E0005B340 /* LocationService.swift in Sources */,
@@ -730,6 +731,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BDEC01A42C94CDB500B9E97D /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.57.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = BDD506472C93A0CF0005B340 /* Project object */;
 }

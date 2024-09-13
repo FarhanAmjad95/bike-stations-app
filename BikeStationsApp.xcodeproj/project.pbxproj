@@ -11,7 +11,6 @@
 		BD62B2EC2C94A2C000ED1DBE /* BikeStationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD62B2EB2C94A2C000ED1DBE /* BikeStationRow.swift */; };
 		BD62B2EE2C94A3CC00ED1DBE /* BikeStationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD62B2ED2C94A3CC00ED1DBE /* BikeStationModel.swift */; };
 		BD62B2F02C94A62A00ED1DBE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD62B2EF2C94A62A00ED1DBE /* Response.swift */; };
-		BD62B2FA2C94A85900ED1DBE /* MockServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD506882C93A1DB0005B340 /* MockServices.swift */; };
 		BDD506532C93A0CF0005B340 /* BikeStationAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD506522C93A0CF0005B340 /* BikeStationAppApp.swift */; };
 		BDD506552C93A0CF0005B340 /* BikeStationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD506542C93A0CF0005B340 /* BikeStationsView.swift */; };
 		BDD506572C93A0D10005B340 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD506562C93A0D10005B340 /* Assets.xcassets */; };
@@ -65,7 +64,6 @@
 		BDD506822C93A1580005B340 /* AppActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActions.swift; sourceTree = "<group>"; };
 		BDD506842C93A16B0005B340 /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		BDD506862C93A1870005B340 /* BikeStationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStationsViewModel.swift; sourceTree = "<group>"; };
-		BDD506882C93A1DB0005B340 /* MockServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServices.swift; sourceTree = "<group>"; };
 		BDD5068A2C93A2140005B340 /* BikeStationsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStationsViewModelTests.swift; sourceTree = "<group>"; };
 		BDD5068C2C93A4410005B340 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,7 +144,6 @@
 			children = (
 				BDD5067C2C93A0E30005B340 /* NetworkService.swift */,
 				BDD5067E2C93A11E0005B340 /* LocationService.swift */,
-				BDD506882C93A1DB0005B340 /* MockServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -365,7 +362,6 @@
 				BDD506812C93A1450005B340 /* AppState.swift in Sources */,
 				BDD5067D2C93A0E30005B340 /* NetworkService.swift in Sources */,
 				BDD5067F2C93A11E0005B340 /* LocationService.swift in Sources */,
-				BD62B2FA2C94A85900ED1DBE /* MockServices.swift in Sources */,
 				BDD506532C93A0CF0005B340 /* BikeStationAppApp.swift in Sources */,
 				BD62B2F02C94A62A00ED1DBE /* Response.swift in Sources */,
 				BDD5068D2C93A4410005B340 /* Constants.swift in Sources */,

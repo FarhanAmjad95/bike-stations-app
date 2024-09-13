@@ -32,12 +32,3 @@ struct BikeStationRow: View {
         
     }
 }
-
-// Segment Control -- Home
-enum Segment: String, CaseIterable, Identifiable {
-    case first = "A-Z"
-    case second = "Vienna"
-    case third = "C Location"
-    
-    var id: Self { self }
-}

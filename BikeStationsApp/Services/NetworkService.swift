@@ -27,32 +27,11 @@ class NetworkService: NetworkServiceProtocol {
         // Decode the JSON response
         do {
             let decodedResponse = try JSONDecoder().decode(NetworkResponse.self, from: data)
-            debugPrint(decodedResponse.network)
-            return decodedResponse.network.stations
+            debugPrint(decodedResponse.response)
+            return decodedResponse.response.stations
         } catch {
             throw error // Rethrow decoding errors
         }
     }
 }
 
-
-class MockNetworkService: NetworkServiceProtocol {
-    var result: Result<[BikeStation], Error>?
-    
-    init(result: Result<[BikeStation], Error>? = nil) {
-        self.result = result
-    }
-    
-    func fetchBikeStations() async throws -> [BikeStation] {
-        if let result = result {
-            switch result {
-            case .success(let stations):
-                return stations
-            case .failure(let error):
-                throw error
-            }
-        } else {
-            throw NSError(domain: "MockNetworkServiceError", code: 0, userInfo: [NSLocalizedDescriptionKey: "No result available"])
-        }
-    }
-}

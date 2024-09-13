@@ -12,13 +12,15 @@ import Combine
 protocol LocationServiceProtocol {
     var authorizationStatus: AnyPublisher<CLAuthorizationStatus, Never> { get }
     func requestLocation() async throws -> CLLocation
+    
 }
 
-class LocationService: NSObject, LocationServiceProtocol, CLLocationManagerDelegate {
+class LocationService: NSObject, LocationServiceProtocol {
     private let locationManager = CLLocationManager()
     private let authorizationStatusSubject = PassthroughSubject<CLAuthorizationStatus, Never>()
     private var locationContinuation: CheckedContinuation<CLLocation, Error>?
-
+    
+    
     override init() {
         super.init()
         locationManager.delegate = self
@@ -42,6 +44,14 @@ class LocationService: NSObject, LocationServiceProtocol, CLLocationManagerDeleg
         }
     }
     
+    // MARK: - Custom Location Errors
+    enum LocationError: Error {
+        case servicesDisabled
+        case noLocationFound
+    }
+}
+
+extension LocationService : CLLocationManagerDelegate {
     // CLLocationManagerDelegate - Authorization changed
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         authorizationStatusSubject.send(status)
@@ -64,41 +74,5 @@ class LocationService: NSObject, LocationServiceProtocol, CLLocationManagerDeleg
         locationContinuation?.resume(throwing: error)
         locationContinuation = nil
     }
-    
-    // MARK: - Custom Location Errors
-    enum LocationError: Error {
-        case servicesDisabled
-        case noLocationFound
-    }
 }
 
-
-class MockLocationService: LocationServiceProtocol {
-    // Publisher for authorization status
-    private let authorizationStatusSubject = CurrentValueSubject<CLAuthorizationStatus, Never>(.notDetermined)
-    
-    // Mock properties for testing
-    var mockLocation: CLLocation?
-    var mockError: Error?
-    var mockAuthorizationStatus: CLAuthorizationStatus = .notDetermined
-    
-    var authorizationStatus: AnyPublisher<CLAuthorizationStatus, Never> {
-        return authorizationStatusSubject.eraseToAnyPublisher()
-    }
-   
-    // Simulates requesting the current location
-    func requestLocation() async throws -> CLLocation {
-        return try await withCheckedThrowingContinuation { continuation in
-            if let mockLocation = mockLocation {
-                continuation.resume(returning: mockLocation)
-            } else if let mockError = mockError {
-                continuation.resume(throwing: mockError)
-            } else {
-                // Provide a default location for testing
-                let location = CLLocation(latitude: Constants.Location.defaultLatitude, longitude: Constants.Location.defaultLongitude)
-                mockLocation = location
-                continuation.resume(returning: location) // Vienna coordinates
-            }
-        }
-    }
-}

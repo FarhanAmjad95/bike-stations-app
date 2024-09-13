@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BikeStationModel: Identifiable {
+struct BikeStationModel: Identifiable {
     let id = UUID()
     let name: String
     let latitude: Double

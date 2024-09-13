@@ -10,7 +10,7 @@
 		BD62B2EA2C94A27000ED1DBE /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD62B2E92C94A27000ED1DBE /* ErrorView.swift */; };
 		BD62B2EC2C94A2C000ED1DBE /* BikeStationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD62B2EB2C94A2C000ED1DBE /* BikeStationRow.swift */; };
 		BD62B2EE2C94A3CC00ED1DBE /* BikeStationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD62B2ED2C94A3CC00ED1DBE /* BikeStationModel.swift */; };
-		BD62B2F02C94A62A00ED1DBE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD62B2EF2C94A62A00ED1DBE /* Response.swift */; };
+		BD62B2F02C94A62A00ED1DBE /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD62B2EF2C94A62A00ED1DBE /* ResponseModel.swift */; };
 		BDD506532C93A0CF0005B340 /* BikeStationAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD506522C93A0CF0005B340 /* BikeStationAppApp.swift */; };
 		BDD506552C93A0CF0005B340 /* BikeStationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD506542C93A0CF0005B340 /* BikeStationsView.swift */; };
 		BDD506572C93A0D10005B340 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD506562C93A0D10005B340 /* Assets.xcassets */; };
@@ -25,6 +25,9 @@
 		BDD506872C93A1870005B340 /* BikeStationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD506862C93A1870005B340 /* BikeStationsViewModel.swift */; };
 		BDD5068B2C93A2140005B340 /* BikeStationsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5068A2C93A2140005B340 /* BikeStationsViewModelTests.swift */; };
 		BDD5068D2C93A4410005B340 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5068C2C93A4410005B340 /* Constants.swift */; };
+		BDEC01A72C94E03D00B9E97D /* MockLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01A62C94E03D00B9E97D /* MockLocationService.swift */; };
+		BDEC01A92C94E0A900B9E97D /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01A82C94E0A900B9E97D /* MockNetworkService.swift */; };
+		BDEC01AC2C94E2AF00B9E97D /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01AB2C94E2AF00B9E97D /* SegmentControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +51,7 @@
 		BD62B2E92C94A27000ED1DBE /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		BD62B2EB2C94A2C000ED1DBE /* BikeStationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStationRow.swift; sourceTree = "<group>"; };
 		BD62B2ED2C94A3CC00ED1DBE /* BikeStationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStationModel.swift; sourceTree = "<group>"; };
-		BD62B2EF2C94A62A00ED1DBE /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		BD62B2EF2C94A62A00ED1DBE /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		BDD5064F2C93A0CF0005B340 /* BikeStationsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeStationsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD506522C93A0CF0005B340 /* BikeStationAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStationAppApp.swift; sourceTree = "<group>"; };
 		BDD506542C93A0CF0005B340 /* BikeStationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStationsView.swift; sourceTree = "<group>"; };
@@ -66,6 +69,9 @@
 		BDD506862C93A1870005B340 /* BikeStationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStationsViewModel.swift; sourceTree = "<group>"; };
 		BDD5068A2C93A2140005B340 /* BikeStationsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStationsViewModelTests.swift; sourceTree = "<group>"; };
 		BDD5068C2C93A4410005B340 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BDEC01A62C94E03D00B9E97D /* MockLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationService.swift; sourceTree = "<group>"; };
+		BDEC01A82C94E0A900B9E97D /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		BDEC01AB2C94E2AF00B9E97D /* SegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,7 @@
 				BDD506542C93A0CF0005B340 /* BikeStationsView.swift */,
 				BD62B2E92C94A27000ED1DBE /* ErrorView.swift */,
 				BD62B2EB2C94A2C000ED1DBE /* BikeStationRow.swift */,
+				BDEC01AB2C94E2AF00B9E97D /* SegmentControl.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -116,7 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				BD62B2ED2C94A3CC00ED1DBE /* BikeStationModel.swift */,
-				BD62B2EF2C94A62A00ED1DBE /* Response.swift */,
+				BD62B2EF2C94A62A00ED1DBE /* ResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -172,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				BDD506512C93A0CF0005B340 /* BikeStationsApp */,
+				BDEC01AA2C94E0B900B9E97D /* Mocks */,
 				BDD506622C93A0D10005B340 /* BikeStationsAppTests */,
 				BDD5066C2C93A0D10005B340 /* BikeStationsAppUITests */,
 				BDD506502C93A0CF0005B340 /* Products */,
@@ -222,6 +230,15 @@
 				BDD5066F2C93A0D10005B340 /* BikeStationAppUITestsLaunchTests.swift */,
 			);
 			path = BikeStationsAppUITests;
+			sourceTree = "<group>";
+		};
+		BDEC01AA2C94E0B900B9E97D /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				BDEC01A62C94E03D00B9E97D /* MockLocationService.swift */,
+				BDEC01A82C94E0A900B9E97D /* MockNetworkService.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,15 +374,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDEC01A72C94E03D00B9E97D /* MockLocationService.swift in Sources */,
 				BD62B2EC2C94A2C000ED1DBE /* BikeStationRow.swift in Sources */,
 				BDD506552C93A0CF0005B340 /* BikeStationsView.swift in Sources */,
+				BDEC01AC2C94E2AF00B9E97D /* SegmentControl.swift in Sources */,
 				BDD506812C93A1450005B340 /* AppState.swift in Sources */,
 				BDD5067D2C93A0E30005B340 /* NetworkService.swift in Sources */,
 				BDD5067F2C93A11E0005B340 /* LocationService.swift in Sources */,
 				BDD506532C93A0CF0005B340 /* BikeStationAppApp.swift in Sources */,
-				BD62B2F02C94A62A00ED1DBE /* Response.swift in Sources */,
+				BD62B2F02C94A62A00ED1DBE /* ResponseModel.swift in Sources */,
 				BDD5068D2C93A4410005B340 /* Constants.swift in Sources */,
 				BDD506852C93A16B0005B340 /* AppStore.swift in Sources */,
+				BDEC01A92C94E0A900B9E97D /* MockNetworkService.swift in Sources */,
 				BDD506872C93A1870005B340 /* BikeStationsViewModel.swift in Sources */,
 				BDD506832C93A1580005B340 /* AppActions.swift in Sources */,
 				BD62B2EE2C94A3CC00ED1DBE /* BikeStationModel.swift in Sources */,

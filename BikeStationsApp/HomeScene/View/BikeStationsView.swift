@@ -14,6 +14,17 @@ struct BikeStationsView: View {
     var body: some View {
         NavigationView {
             VStack {
+                // TODO: - Clean If else
+                Picker(Constants.BikeStationsView.selectSegment, selection: $viewModel.selectedSegment) {
+                    ForEach(Segment.allCases) { segment in
+                        Text(segment.rawValue).tag(segment)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding()
+                
+                Spacer()
+                
                 if viewModel.isLoading {
                     ProgressView(Constants.BikeStationsView.loadingMessage)
                         .progressViewStyle(CircularProgressViewStyle())
@@ -36,14 +47,6 @@ struct BikeStationsView: View {
                         .foregroundColor(.blue)
                     }
                 } else {
-                    Picker(Constants.BikeStationsView.selectSegment, selection: $viewModel.selectedSegment) {
-                        ForEach(Segment.allCases) { segment in
-                            Text(segment.rawValue).tag(segment)
-                        }
-                    }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .padding()
-                    
                     List(viewModel.bikeStations) { station in
                         BikeStationRow(station: station) {
                             viewModel.openMap(for: station)

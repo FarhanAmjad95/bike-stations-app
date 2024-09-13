@@ -10,6 +10,7 @@ import Combine
 import UIKit
 import CoreLocation
 
+//TODO - Protocols
 class BikeStationsViewModel: ObservableObject {
     @Published var bikeStations: [BikeStationModel] = []
     @Published var isLoading: Bool = false
@@ -25,7 +26,10 @@ class BikeStationsViewModel: ObservableObject {
         self.store = store
         self.locationService = locationService
         self.networkService = networkService
-        
+        self.bind()
+    }
+    
+    func bind() {
         // Listen for store state changes
         store.statePublisher
             .receive(on: DispatchQueue.main)
@@ -79,7 +83,6 @@ class BikeStationsViewModel: ObservableObject {
     }
     
     func requestLocation() {
-        
         Task { [weak self] in
             // Set loading state to true
             self?.store.dispatch(.setLoading(true))

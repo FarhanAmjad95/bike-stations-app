@@ -8,15 +8,19 @@
 import CoreLocation
 
 // Codable Models
-struct NetworkResponse: Codable {
-    let network: Network
+struct NetworkResponse: Decodable {
+    let response: ResponseModel
+    
+    enum CodingKeys: String, CodingKey {
+        case response =  "network"
+    }
 }
 
-struct Network: Codable {
+struct ResponseModel: Decodable {
     let stations: [BikeStation]
 }
 
-struct BikeStation: Identifiable, Codable {
+struct BikeStation: Identifiable, Decodable {
     let id: String
     let name: String
     let emptySlots: Int?

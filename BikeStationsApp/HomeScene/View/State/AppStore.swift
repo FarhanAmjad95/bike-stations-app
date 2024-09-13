@@ -16,7 +16,6 @@ protocol StoreProtocol: ObservableObject {
     func dispatch(_ action: AppAction)
 }
 
-
 class AppStore: StoreProtocol {
     @Published private(set) var state = AppState()
     
@@ -25,11 +24,7 @@ class AppStore: StoreProtocol {
     }
     
     private var cancellables: Set<AnyCancellable> = []
-    
-    init() {
-        
-    }
-
+ 
     func dispatch(_ action: AppAction) {
         switch action {
         case .setStations(let stations):

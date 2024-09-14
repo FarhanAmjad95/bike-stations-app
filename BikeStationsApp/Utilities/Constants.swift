@@ -45,7 +45,7 @@ enum Constants {
     enum MockConstants {
         static let mockBikeStations: [BikeStation] = [
             BikeStation(id: "1", name: "Station 1", emptySlots: 5, freeBikes: 5, latitude: 48.215, longitude: 16.370),
-            BikeStation(id: "2", name: "Station 2", emptySlots: 5, freeBikes: 5, latitude: 48.200, longitude: 16.360),
+            BikeStation(id: "2", name: "Station 2", emptySlots: 5, freeBikes: 5, latitude: 48.200, longitude: 16.360)
         ]
 
         static let mockLocationService = MockLocationService(mockAuthorizationStatus: .denied)

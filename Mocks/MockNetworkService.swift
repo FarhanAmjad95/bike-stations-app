@@ -23,7 +23,8 @@ class MockNetworkService: NetworkServiceProtocol {
                 throw error
             }
         } else {
-            throw NSError(domain: "MockNetworkServiceError", code: 0, userInfo: [NSLocalizedDescriptionKey: "No result available"])
+            throw NSError(domain: "MockNetworkServiceError", code: 0,
+                          userInfo: [NSLocalizedDescriptionKey: "No result available"])
         }
     }
 }

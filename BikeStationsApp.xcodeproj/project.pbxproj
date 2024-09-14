@@ -270,6 +270,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				BDEC01C52C96034C00B9E97D /* PBXTargetDependency */,
 			);
 			name = BikeStationsApp;
 			productName = BikeStationApp;
@@ -345,6 +346,7 @@
 			);
 			mainGroup = BDD506462C93A0CF0005B340;
 			packageReferences = (
+				BDEC01C32C96029700B9E97D /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
 			);
 			productRefGroup = BDD506502C93A0CF0005B340 /* Products */;
 			projectDirPath = "";
@@ -441,6 +443,10 @@
 			isa = PBXTargetDependency;
 			target = BDD5064E2C93A0CF0005B340 /* BikeStationsApp */;
 			targetProxy = BDD5066A2C93A0D10005B340 /* PBXContainerItemProxy */;
+		};
+		BDEC01C52C96034C00B9E97D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = BDEC01C42C96034C00B9E97D /* SwiftLintBuildToolPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -626,7 +632,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.infosys.BikeStationApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infosys.BikeStationapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -690,7 +696,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.infosys.BikeStationAppUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infosys.BikeStationAppTestsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -716,7 +722,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.infosys.BikeStationAppUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infosys.BikeStationAppTestsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -766,6 +772,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BDEC01C32C96029700B9E97D /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.57.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BDEC01C42C96034C00B9E97D /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDEC01C32C96029700B9E97D /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BDD506472C93A0CF0005B340 /* Project object */;
 }

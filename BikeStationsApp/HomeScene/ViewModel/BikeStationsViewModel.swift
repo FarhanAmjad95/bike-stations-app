@@ -13,7 +13,7 @@ import UIKit
 class BikeStationsViewModel: BikeStationsViewModelProtocol {
     @Published var bikeStations: [BikeStationModel] = []
     @Published var isLoading: Bool = false
-    @Published var errorMessage: ErrorType? = nil
+    @Published var errorMessage: ErrorType?
     @Published var selectedSegment: Segment = .first
 
     private var cancellables: Set<AnyCancellable> = []

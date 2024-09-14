@@ -28,10 +28,10 @@ struct BikeStationRow: View {
             Spacer()
             Button(action: {
                 onViewMap()
-            }) {
+            }, label: {
                 Text(Constants.BikeStationsView.viewOnMap)
                     .foregroundColor(.blue)
-            }
+            })
         }
     }
 }

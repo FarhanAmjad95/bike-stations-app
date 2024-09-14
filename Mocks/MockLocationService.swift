@@ -37,7 +37,8 @@ class MockLocationService: LocationServiceProtocol {
                 continuation.resume(throwing: mockError)
             } else {
                 // Provide a default location for testing
-                let location = CLLocation(latitude: Constants.Location.defaultLatitude, longitude: Constants.Location.defaultLongitude)
+                let location = CLLocation(latitude: Constants.Location.defaultLatitude,
+                                          longitude: Constants.Location.defaultLongitude)
                 mockLocation = location
                 continuation.resume(returning: location) // Vienna coordinates
             }

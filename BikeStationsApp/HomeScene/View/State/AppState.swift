@@ -11,6 +11,6 @@ import Foundation
 struct AppState {
     var bikeStations: [BikeStation] = []
     var isLoading: Bool = false
-    var errorMessage: ErrorType? = nil
-    var userLocation: CLLocation? = nil
+    var errorMessage: ErrorType?
+    var userLocation: CLLocation?
 }

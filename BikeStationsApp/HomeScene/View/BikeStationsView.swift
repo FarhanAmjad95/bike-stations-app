@@ -7,63 +7,53 @@
 
 import SwiftUI
 import CoreLocation
-
 struct BikeStationsView: View {
     @ObservedObject var viewModel: BikeStationsViewModel
     
     var body: some View {
         NavigationView {
             VStack {
-                // TODO: - Clean If else
-                Picker(Constants.BikeStationsView.selectSegment, selection: $viewModel.selectedSegment) {
-                    ForEach(Segment.allCases) { segment in
-                        Text(segment.rawValue).tag(segment)
-                    }
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding()
+                SegmentPickerView(selectedSegment: $viewModel.selectedSegment)
                 
                 Spacer()
                 
-                if viewModel.isLoading {
-                    ProgressView(Constants.BikeStationsView.loadingMessage)
-                        .progressViewStyle(CircularProgressViewStyle())
-                } else if let errorMessage = viewModel.errorMessage, viewModel.selectedSegment == .third {
-                    VStack{
-                        ErrorView(errorMessage: errorMessage)
-                        Button(Constants.Messages.grantLocationAccess) {
-                            viewModel.requestLocationAccess()
-                        }
-                    }
-                } else if viewModel.bikeStations.isEmpty {
-                    VStack {
-                        Text(Constants.Messages.nobikeAvailable)
-                            .font(.headline)
-                            .padding()
-                        Button(Constants.Messages.grantLocationAccess) {
-                            viewModel.requestLocationPermissions()
-                        }
-                        .padding()
-                        .foregroundColor(.blue)
-                    }
-                } else {
-                    List(viewModel.bikeStations) { station in
-                        BikeStationRow(station: station) {
+                ZStack {
+                    BikeStationsContentView(
+                        isLoading: viewModel.isLoading,
+                        errorMessage: viewModel.errorMessage,
+                        selectedSegment: viewModel.selectedSegment,
+                        bikeStations: viewModel.bikeStations,
+                        requestLocationAccess: { viewModel.requestLocationAccess() },
+                        requestLocationPermissions: {
+                            Task {
+                                await viewModel.requestLocationPermissions()
+                            }
+                        },
+                        openMap: { station in
                             viewModel.openMap(for: station)
                         }
+                    )
+
+                    if viewModel.isLoading {
+                        LoadingView()
                     }
                 }
             }
             .navigationBarTitle(Constants.BikeStationsView.navigationTitle)
             .refreshable {
-                viewModel.refreshStations()
+                Task {
+                    await viewModel.refreshStations()
+                }
             }
             .onAppear {
-                viewModel.refreshStations()
+                Task {
+                    await viewModel.refreshStations()
+                }
             }
         }
     }
 }
+
 
 #Preview {
     //Happy Case

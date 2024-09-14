@@ -28,6 +28,9 @@
 		BDEC01A72C94E03D00B9E97D /* MockLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01A62C94E03D00B9E97D /* MockLocationService.swift */; };
 		BDEC01A92C94E0A900B9E97D /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01A82C94E0A900B9E97D /* MockNetworkService.swift */; };
 		BDEC01AC2C94E2AF00B9E97D /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01AB2C94E2AF00B9E97D /* SegmentControl.swift */; };
+		BDEC01AF2C959F6300B9E97D /* SegmentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01AE2C959F6300B9E97D /* SegmentPickerView.swift */; };
+		BDEC01B12C959F7000B9E97D /* BikeStationsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01B02C959F7000B9E97D /* BikeStationsContentView.swift */; };
+		BDEC01B32C959F9000B9E97D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01B22C959F9000B9E97D /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,9 @@
 		BDEC01A62C94E03D00B9E97D /* MockLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationService.swift; sourceTree = "<group>"; };
 		BDEC01A82C94E0A900B9E97D /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
 		BDEC01AB2C94E2AF00B9E97D /* SegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
+		BDEC01AE2C959F6300B9E97D /* SegmentPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentPickerView.swift; sourceTree = "<group>"; };
+		BDEC01B02C959F7000B9E97D /* BikeStationsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStationsContentView.swift; sourceTree = "<group>"; };
+		BDEC01B22C959F9000B9E97D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,9 @@
 				BD62B2E92C94A27000ED1DBE /* ErrorView.swift */,
 				BD62B2EB2C94A2C000ED1DBE /* BikeStationRow.swift */,
 				BDEC01AB2C94E2AF00B9E97D /* SegmentControl.swift */,
+				BDEC01AE2C959F6300B9E97D /* SegmentPickerView.swift */,
+				BDEC01B02C959F7000B9E97D /* BikeStationsContentView.swift */,
+				BDEC01B22C959F9000B9E97D /* LoadingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -330,7 +339,7 @@
 			);
 			mainGroup = BDD506462C93A0CF0005B340;
 			packageReferences = (
-				BDEC01A42C94CDB500B9E97D /* XCRemoteSwiftPackageReference "SwiftLint" */,
+				BDEC01AD2C959A5E00B9E97D /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
 			);
 			productRefGroup = BDD506502C93A0CF0005B340 /* Products */;
 			projectDirPath = "";
@@ -381,14 +390,17 @@
 				BDD506812C93A1450005B340 /* AppState.swift in Sources */,
 				BDD5067D2C93A0E30005B340 /* NetworkService.swift in Sources */,
 				BDD5067F2C93A11E0005B340 /* LocationService.swift in Sources */,
+				BDEC01B12C959F7000B9E97D /* BikeStationsContentView.swift in Sources */,
 				BDD506532C93A0CF0005B340 /* BikeStationAppApp.swift in Sources */,
 				BD62B2F02C94A62A00ED1DBE /* ResponseModel.swift in Sources */,
 				BDD5068D2C93A4410005B340 /* Constants.swift in Sources */,
 				BDD506852C93A16B0005B340 /* AppStore.swift in Sources */,
+				BDEC01AF2C959F6300B9E97D /* SegmentPickerView.swift in Sources */,
 				BDEC01A92C94E0A900B9E97D /* MockNetworkService.swift in Sources */,
 				BDD506872C93A1870005B340 /* BikeStationsViewModel.swift in Sources */,
 				BDD506832C93A1580005B340 /* AppActions.swift in Sources */,
 				BD62B2EE2C94A3CC00ED1DBE /* BikeStationModel.swift in Sources */,
+				BDEC01B32C959F9000B9E97D /* LoadingView.swift in Sources */,
 				BD62B2EA2C94A27000ED1DBE /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -749,9 +761,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BDEC01A42C94CDB500B9E97D /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+		BDEC01AD2C959A5E00B9E97D /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/SwiftLint.git";
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.57.0;

@@ -28,7 +28,7 @@ struct BikeStationsView: View {
                         requestLocationAccess: { viewModel.requestLocationAccess() },
                         requestLocationPermissions: {
                             Task {
-                                await viewModel.requestLocationPermissions()
+                                await viewModel.requestLocation()
                             }
                         },
                         openMap: { station in

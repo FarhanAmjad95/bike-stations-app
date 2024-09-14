@@ -15,7 +15,7 @@ protocol BikeStationsViewModelProtocol: ObservableObject {
 
     
     func refreshStations() async
-    func requestLocationPermissions() async
+    func requestLocation() async
     func openMap(for station: BikeStationModel)
     func requestLocationAccess()
 }

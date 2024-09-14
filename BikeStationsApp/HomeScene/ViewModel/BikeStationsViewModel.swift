@@ -97,20 +97,15 @@ extension BikeStationsViewModel {
     /// Handles the third segment selection
     private func handleThirdSegmentSelected() {
         Task {
-            await requestLocationPermissions()
+            await requestLocation()
         }
     }
 }
 
 // MARK: - Location Management
 extension BikeStationsViewModel {
-    /// Requests location permissions asynchronously
-    func requestLocationPermissions() async {
-        await requestLocation()
-    }
-    
     /// Requests the user's location
-    private func requestLocation() async {
+    func requestLocation() async {
         store.dispatch(.setLoading(true))
         
         do {

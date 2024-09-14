@@ -135,7 +135,7 @@ class BikeStationsViewModelTests: XCTestCase {
             }
         }
 
-        await viewModel.requestLocationPermissions()
+        await viewModel.requestLocation()
 
         // Await the fulfillment of the expectation
         await fulfillment(of: [expectation], timeout: 5.0)

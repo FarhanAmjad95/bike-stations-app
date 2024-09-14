@@ -7,6 +7,8 @@
 
 import SwiftUI
 import CoreLocation
+
+
 struct BikeStationsView: View {
     // MARK: - Properties
     @ObservedObject var viewModel: BikeStationsViewModel
@@ -58,13 +60,12 @@ struct BikeStationsView: View {
 
 
 #Preview {
-    //Happy Case
-    BikeStationsView(viewModel: BikeStationsViewModel(store: AppStore(), locationService: MockLocationService(), networkService: MockNetworkService(result: .success([BikeStation(id: "1", name: "Station 1", emptySlots: 5, freeBikes: 5, latitude: 48.215, longitude: 16.370), BikeStation(id: "2", name: "Station 2", emptySlots: 5, freeBikes: 5, latitude: 48.200, longitude: 16.360)]))))
-    
-    
-    //Error
-    /*
-     BikeStationsView(viewModel: BikeStationsViewModel(store: AppStore(), locationService: MockLocationService(), networkService: MockNetworkService(result: .failure(NSError(domain: "No data", code: 0, userInfo: nil)))))
-     */
+    BikeStationsView(
+        viewModel: BikeStationsViewModel(
+            store: Constants.MockConstants.appStore,
+            locationService: Constants.MockConstants.mockLocationService,
+            networkService: Constants.MockConstants.mockNetworkService
+        )
+    )
 }
 

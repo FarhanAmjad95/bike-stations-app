@@ -31,6 +31,5 @@ struct BikeStationRow: View {
                     .foregroundColor(.blue)
             }
         }
-        
     }
 }

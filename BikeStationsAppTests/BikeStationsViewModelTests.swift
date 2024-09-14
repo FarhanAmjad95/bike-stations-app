@@ -18,7 +18,7 @@ class BikeStationsViewModelTests: XCTestCase {
     override func setUp() {
         super.setUp()
         mockStore = AppStore()
-        locationMock = MockLocationService()
+        locationMock = MockLocationService(mockAuthorizationStatus: .authorizedAlways)
     }
 
     func testFetchBikeStationsSuccess() async {

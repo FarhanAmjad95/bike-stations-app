@@ -9,15 +9,11 @@ import Foundation
 import Combine
 import CoreLocation
 
-
 protocol StoreProtocol: ObservableObject {
     var state: AppState { get }
     var statePublisher: AnyPublisher<AppState, Never> { get }
     func dispatch(_ action: AppAction)
 }
-
-import Combine
-import CoreLocation
 
 class AppStore: StoreProtocol {
     // MARK: - Properties

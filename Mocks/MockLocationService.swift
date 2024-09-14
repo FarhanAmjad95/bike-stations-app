@@ -18,6 +18,12 @@ class MockLocationService: LocationServiceProtocol {
     var mockError: Error?
     var mockAuthorizationStatus: CLAuthorizationStatus = .notDetermined
     
+    init(mockLocation: CLLocation? = nil, mockError: Error? = nil, mockAuthorizationStatus: CLAuthorizationStatus) {
+        self.mockLocation = mockLocation
+        self.mockError = mockError
+        self.mockAuthorizationStatus = mockAuthorizationStatus
+    }
+    
     var authorizationStatus: AnyPublisher<CLAuthorizationStatus, Never> {
         return authorizationStatusSubject.eraseToAnyPublisher()
     }

@@ -11,7 +11,7 @@ import CoreLocation
 enum AppAction {
     case setStations([BikeStation])
     case setLoading(Bool)
-    case setErrorMessage(String?)
+    case setErrorMessage(ErrorType?)
     case setUserLocation(CLLocation?)
     case sortStationsByDistance
 }

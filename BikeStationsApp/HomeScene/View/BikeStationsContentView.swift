@@ -10,7 +10,7 @@ import SwiftUI
 struct BikeStationsContentView: View {
     // MARK: - Properties
     var isLoading: Bool
-    var errorMessage: String?
+    var errorMessage: ErrorType?
     var selectedSegment: Segment
     var bikeStations: [BikeStationModel]
     var requestLocationAccess: () -> Void
@@ -20,7 +20,7 @@ struct BikeStationsContentView: View {
     // MARK: - Body
     var body: some View {
         // Display content based on the current state
-        if let errorMessage = errorMessage, selectedSegment == .third {
+        if let errorMessage = errorMessage {
             errorView(errorMessage)
         } else if bikeStations.isEmpty {
             noStationsView
@@ -30,17 +30,20 @@ struct BikeStationsContentView: View {
     }
     
     // MARK: - Private Views
-    
-    /// View to show when there's an error message and the third segment is selected
-    private func errorView(_ errorMessage: String) -> some View {
+
+    /// View to show when there's an error
+    private func errorView(_ errorType: ErrorType) -> some View {
         VStack {
-            ErrorView(errorMessage: errorMessage)
-            Button(Constants.Messages.grantLocationAccess) {
-                requestLocationAccess()
+            ErrorView(errorMessage: errorType.message)
+            if errorType == .locationPermissionError {
+                Button(Constants.Messages.grantLocationAccess) {
+                    requestLocationAccess()
+                }
+                .padding()
             }
         }
     }
-    
+
     /// View to show when there are no bike stations available
     private var noStationsView: some View {
         VStack {

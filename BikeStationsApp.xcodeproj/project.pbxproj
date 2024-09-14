@@ -32,6 +32,7 @@
 		BDEC01B12C959F7000B9E97D /* BikeStationsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01B02C959F7000B9E97D /* BikeStationsContentView.swift */; };
 		BDEC01B32C959F9000B9E97D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01B22C959F9000B9E97D /* LoadingView.swift */; };
 		BDEC01B52C95A72500B9E97D /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01B42C95A72500B9E97D /* ViewModelProtocol.swift */; };
+		BDEC01BA2C95BE2700B9E97D /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01B92C95BE2700B9E97D /* ErrorType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		BDEC01B02C959F7000B9E97D /* BikeStationsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStationsContentView.swift; sourceTree = "<group>"; };
 		BDEC01B22C959F9000B9E97D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		BDEC01B42C95A72500B9E97D /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
+		BDEC01B92C95BE2700B9E97D /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			children = (
 				BDD5067C2C93A0E30005B340 /* NetworkService.swift */,
 				BDD5067E2C93A11E0005B340 /* LocationService.swift */,
+				BDEC01B92C95BE2700B9E97D /* ErrorType.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -342,7 +345,6 @@
 			);
 			mainGroup = BDD506462C93A0CF0005B340;
 			packageReferences = (
-				BDEC01AD2C959A5E00B9E97D /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
 			);
 			productRefGroup = BDD506502C93A0CF0005B340 /* Products */;
 			projectDirPath = "";
@@ -387,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDEC01A72C94E03D00B9E97D /* MockLocationService.swift in Sources */,
+				BDEC01BA2C95BE2700B9E97D /* ErrorType.swift in Sources */,
 				BD62B2EC2C94A2C000ED1DBE /* BikeStationRow.swift in Sources */,
 				BDD506552C93A0CF0005B340 /* BikeStationsView.swift in Sources */,
 				BDEC01AC2C94E2AF00B9E97D /* SegmentControl.swift in Sources */,
@@ -763,17 +766,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		BDEC01AD2C959A5E00B9E97D /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.57.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = BDD506472C93A0CF0005B340 /* Project object */;
 }

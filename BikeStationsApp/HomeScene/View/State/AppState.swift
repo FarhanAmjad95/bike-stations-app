@@ -11,6 +11,6 @@ import CoreLocation
 struct AppState {
     var bikeStations: [BikeStation] = []
     var isLoading: Bool = false
-    var errorMessage: String? = nil
+    var errorMessage: ErrorType? = nil
     var userLocation: CLLocation? = nil
 }

@@ -10,7 +10,7 @@ import Foundation
 protocol BikeStationsViewModelProtocol: ObservableObject {
     var bikeStations: [BikeStationModel] { get }
     var isLoading: Bool { get }
-    var errorMessage: String? { get }
+    var errorMessage: ErrorType? { get }
     var selectedSegment: Segment { get set }
 
     

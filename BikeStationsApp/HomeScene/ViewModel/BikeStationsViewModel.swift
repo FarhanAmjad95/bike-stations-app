@@ -13,7 +13,7 @@ import CoreLocation
 class BikeStationsViewModel: BikeStationsViewModelProtocol {
     @Published var bikeStations: [BikeStationModel] = []
     @Published var isLoading: Bool = false
-    @Published var errorMessage: String? = nil
+    @Published var errorMessage: ErrorType? = nil
     @Published var selectedSegment: Segment = .first
     
     private var cancellables: Set<AnyCancellable> = []
@@ -77,6 +77,9 @@ extension BikeStationsViewModel {
     /// Handles the first segment selection
     private func handleFirstSegmentSelected() {
         store.dispatch(.setUserLocation(nil))
+        Task {
+            await refreshStations()
+        }
     }
     
     /// Handles the second segment selection
@@ -86,6 +89,9 @@ extension BikeStationsViewModel {
             longitude: Constants.Location.defaultLongitude
         )
         store.dispatch(.setUserLocation(defaultLocation))
+        Task {
+            await refreshStations()
+        }
     }
     
     /// Handles the third segment selection
@@ -130,9 +136,14 @@ extension BikeStationsViewModel {
     /// Handles changes in the location authorization status
     private func handleAuthorizationStatusChange(_ status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse || status == .authorizedAlways {
-            Task { await fetchBikeStations() }
+            Task { 
+                await requestLocation()
+                await fetchBikeStations()
+            }
         } else {
-            store.dispatch(.setErrorMessage(Constants.Messages.errorFailedToFetchLocation))
+            if selectedSegment == .third {
+                store.dispatch(.setErrorMessage(.locationPermissionError))
+            }
         }
     }
 }
@@ -163,8 +174,7 @@ extension BikeStationsViewModel {
 extension BikeStationsViewModel {
     /// Handles errors when fetching location or bike stations
     private func handleErrorFetchingLocation(_ error: Error) {
-        let errorMessage = Constants.Messages.errorFailedToFetchLocation + ": \(error.localizedDescription)"
-        store.dispatch(.setErrorMessage(errorMessage))
+        store.dispatch(.setErrorMessage(.otherError(error)))
     }
 }
 

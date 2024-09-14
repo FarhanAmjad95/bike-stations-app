@@ -10,19 +10,6 @@ import Combine
 import UIKit
 import CoreLocation
 
-protocol BikeStationsViewModelProtocol: ObservableObject {
-    var bikeStations: [BikeStationModel] { get }
-    var isLoading: Bool { get }
-    var errorMessage: String? { get }
-    var selectedSegment: Segment { get set }
-
-    
-    func refreshStations() async
-    func requestLocationPermissions() async
-    func openMap(for station: BikeStationModel)
-    func requestLocationAccess()
-}
-
 class BikeStationsViewModel: BikeStationsViewModelProtocol {
     @Published var bikeStations: [BikeStationModel] = []
     @Published var isLoading: Bool = false

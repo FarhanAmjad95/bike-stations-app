@@ -31,6 +31,7 @@
 		BDEC01AF2C959F6300B9E97D /* SegmentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01AE2C959F6300B9E97D /* SegmentPickerView.swift */; };
 		BDEC01B12C959F7000B9E97D /* BikeStationsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01B02C959F7000B9E97D /* BikeStationsContentView.swift */; };
 		BDEC01B32C959F9000B9E97D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01B22C959F9000B9E97D /* LoadingView.swift */; };
+		BDEC01B52C95A72500B9E97D /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01B42C95A72500B9E97D /* ViewModelProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		BDEC01AE2C959F6300B9E97D /* SegmentPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentPickerView.swift; sourceTree = "<group>"; };
 		BDEC01B02C959F7000B9E97D /* BikeStationsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStationsContentView.swift; sourceTree = "<group>"; };
 		BDEC01B22C959F9000B9E97D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		BDEC01B42C95A72500B9E97D /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 		BD62B2F22C94A71500ED1DBE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BDEC01B42C95A72500B9E97D /* ViewModelProtocol.swift */,
 				BDD506862C93A1870005B340 /* BikeStationsViewModel.swift */,
 			);
 			path = ViewModel;
@@ -399,6 +402,7 @@
 				BDEC01A92C94E0A900B9E97D /* MockNetworkService.swift in Sources */,
 				BDD506872C93A1870005B340 /* BikeStationsViewModel.swift in Sources */,
 				BDD506832C93A1580005B340 /* AppActions.swift in Sources */,
+				BDEC01B52C95A72500B9E97D /* ViewModelProtocol.swift in Sources */,
 				BD62B2EE2C94A3CC00ED1DBE /* BikeStationModel.swift in Sources */,
 				BDEC01B32C959F9000B9E97D /* LoadingView.swift in Sources */,
 				BD62B2EA2C94A27000ED1DBE /* ErrorView.swift in Sources */,

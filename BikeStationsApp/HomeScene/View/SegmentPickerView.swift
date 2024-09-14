@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct SegmentPickerView: View {
+    // MARK: - Properties
     @Binding var selectedSegment: Segment
     
+    // MARK: - Body
     var body: some View {
         Picker(Constants.BikeStationsView.selectSegment, selection: $selectedSegment) {
             ForEach(Segment.allCases) { segment in

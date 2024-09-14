@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct BikeStationRow: View {
+    // MARK: - Properties
     let station: BikeStationModel
     let onViewMap: () -> Void
     
+    // MARK: - Body
     var body: some View {
         HStack {
             VStack(alignment: .leading) {

@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ErrorView: View {
+    // MARK: - Properties
     let errorMessage: String
     
+    // MARK: - Body
     var body: some View {
         VStack {
             Image(systemName: Constants.Images.exclamationMark) // Use an appropriate system image for errors

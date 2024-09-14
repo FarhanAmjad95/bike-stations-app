@@ -8,8 +8,10 @@
 import SwiftUI
 import CoreLocation
 struct BikeStationsView: View {
+    // MARK: - Properties
     @ObservedObject var viewModel: BikeStationsViewModel
     
+    // MARK: - Body
     var body: some View {
         NavigationView {
             VStack {

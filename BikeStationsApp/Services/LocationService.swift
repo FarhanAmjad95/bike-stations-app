@@ -12,7 +12,6 @@ import Combine
 protocol LocationServiceProtocol {
     var authorizationStatus: AnyPublisher<CLAuthorizationStatus, Never> { get }
     func requestLocation() async throws -> CLLocation
-    
 }
 
 class LocationService: NSObject, LocationServiceProtocol {

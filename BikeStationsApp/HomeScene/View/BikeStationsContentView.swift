@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  BikeStationsContentView.swift
 //  BikeStationsApp
 //
 //  Created by Farhan Amjad on 14.09.24.
@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BikeStationsContentView: View {
     // MARK: - Properties
+
     var isLoading: Bool
     var errorMessage: ErrorType?
     var selectedSegment: Segment
@@ -16,8 +17,9 @@ struct BikeStationsContentView: View {
     var requestLocationAccess: () -> Void
     var requestLocationPermissions: () -> Void
     var openMap: (BikeStationModel) -> Void
-    
+
     // MARK: - Body
+
     var body: some View {
         // Display content based on the current state
         if let errorMessage = errorMessage {
@@ -28,7 +30,7 @@ struct BikeStationsContentView: View {
             stationsListView
         }
     }
-    
+
     // MARK: - Private Views
 
     /// View to show when there's an error
@@ -57,7 +59,7 @@ struct BikeStationsContentView: View {
             .foregroundColor(.blue)
         }
     }
-    
+
     /// View to display the list of bike stations
     private var stationsListView: some View {
         List(bikeStations) { station in

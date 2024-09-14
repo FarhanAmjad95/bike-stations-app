@@ -5,8 +5,8 @@
 //  Created by Farhan Amjad on 13.09.24.
 //
 
-import Foundation
 import CoreLocation
+import Foundation
 
 enum AppAction {
     case setStations([BikeStation])

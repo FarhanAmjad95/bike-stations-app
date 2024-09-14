@@ -5,22 +5,23 @@
 //  Created by Farhan Amjad on 13.09.24.
 //
 
-import SwiftUI
 import CoreLocation
-
+import SwiftUI
 
 struct BikeStationsView: View {
     // MARK: - Properties
+
     @ObservedObject var viewModel: BikeStationsViewModel
-    
+
     // MARK: - Body
+
     var body: some View {
         NavigationView {
             VStack {
                 SegmentPickerView(selectedSegment: $viewModel.selectedSegment)
-                
+
                 Spacer()
-                
+
                 ZStack {
                     BikeStationsContentView(
                         isLoading: viewModel.isLoading,
@@ -58,7 +59,6 @@ struct BikeStationsView: View {
     }
 }
 
-
 #Preview {
     BikeStationsView(
         viewModel: BikeStationsViewModel(
@@ -68,4 +68,3 @@ struct BikeStationsView: View {
         )
     )
 }
-

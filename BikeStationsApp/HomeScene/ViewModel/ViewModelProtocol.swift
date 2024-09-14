@@ -13,7 +13,6 @@ protocol BikeStationsViewModelProtocol: ObservableObject {
     var errorMessage: ErrorType? { get }
     var selectedSegment: Segment { get set }
 
-    
     func refreshStations() async
     func requestLocation() async
     func openMap(for station: BikeStationModel)

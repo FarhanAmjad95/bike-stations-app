@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  BikeStationModel.swift
 //  BikeStationApp
 //
 //  Created by Farhan Amjad on 13.09.24.
@@ -14,12 +14,12 @@ struct BikeStationModel: Identifiable {
     let longitude: Double
     let bikesAvailable: Int
     let emptySlots: Int
-    
+
     init(station: BikeStation) {
-        self.name = station.name
-        self.latitude = station.latitude
-        self.longitude = station.longitude
-        self.bikesAvailable = station.freeBikes ?? 0
-        self.emptySlots = station.emptySlots ?? 0
+        name = station.name
+        latitude = station.latitude
+        longitude = station.longitude
+        bikesAvailable = station.freeBikes ?? 0
+        emptySlots = station.emptySlots ?? 0
     }
 }

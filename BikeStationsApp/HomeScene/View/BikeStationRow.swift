@@ -9,10 +9,12 @@ import SwiftUI
 
 struct BikeStationRow: View {
     // MARK: - Properties
+
     let station: BikeStationModel
     let onViewMap: () -> Void
-    
+
     // MARK: - Body
+
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -20,7 +22,7 @@ struct BikeStationRow: View {
                     .font(.headline)
                 Text(Constants.BikeStationsView.bikes + ": \(station.bikesAvailable)")
                     .font(.subheadline)
-                Text( Constants.BikeStationsView.emptySlots + ": \(station.emptySlots)")
+                Text(Constants.BikeStationsView.emptySlots + ": \(station.emptySlots)")
                     .font(.subheadline)
             }
             Spacer()

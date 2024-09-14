@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  LoadingView.swift
 //  BikeStationsApp
 //
 //  Created by Farhan Amjad on 14.09.24.
@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoadingView: View {
     // MARK: - Body
+
     var body: some View {
         ZStack {
             Color.black.opacity(0.4)

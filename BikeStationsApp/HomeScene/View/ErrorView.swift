@@ -9,9 +9,11 @@ import SwiftUI
 
 struct ErrorView: View {
     // MARK: - Properties
+
     let errorMessage: String
-    
+
     // MARK: - Body
+
     var body: some View {
         VStack {
             Image(systemName: Constants.Images.exclamationMark) // Use an appropriate system image for errors
@@ -19,12 +21,12 @@ struct ErrorView: View {
                 .aspectRatio(contentMode: .fit)
                 .foregroundColor(.red)
                 .frame(width: 100, height: 100)
-            
+
             Text(errorMessage)
                 .font(.headline)
                 .multilineTextAlignment(.center)
                 .padding()
-            
+
             Spacer()
         }
         .padding()

@@ -1,5 +1,5 @@
 //
-//  Response.swift
+//  ResponseModel.swift
 //  BikeStationApp
 //
 //  Created by Farhan Amjad on 13.09.24.
@@ -10,9 +10,9 @@ import CoreLocation
 // Codable Models
 struct NetworkResponse: Decodable {
     let response: ResponseModel
-    
+
     enum CodingKeys: String, CodingKey {
-        case response =  "network"
+        case response = "network"
     }
 }
 
@@ -27,11 +27,11 @@ struct BikeStation: Identifiable, Decodable {
     let freeBikes: Int?
     let latitude: Double
     let longitude: Double
-    
+
     var coordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case name

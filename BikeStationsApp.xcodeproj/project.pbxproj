@@ -27,7 +27,6 @@
 		BDD5068D2C93A4410005B340 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD5068C2C93A4410005B340 /* Constants.swift */; };
 		BDEC01A72C94E03D00B9E97D /* MockLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01A62C94E03D00B9E97D /* MockLocationService.swift */; };
 		BDEC01A92C94E0A900B9E97D /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01A82C94E0A900B9E97D /* MockNetworkService.swift */; };
-		BDEC01AC2C94E2AF00B9E97D /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01AB2C94E2AF00B9E97D /* SegmentControl.swift */; };
 		BDEC01AF2C959F6300B9E97D /* SegmentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01AE2C959F6300B9E97D /* SegmentPickerView.swift */; };
 		BDEC01B12C959F7000B9E97D /* BikeStationsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01B02C959F7000B9E97D /* BikeStationsContentView.swift */; };
 		BDEC01B32C959F9000B9E97D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01B22C959F9000B9E97D /* LoadingView.swift */; };
@@ -76,7 +75,6 @@
 		BDD5068C2C93A4410005B340 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BDEC01A62C94E03D00B9E97D /* MockLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationService.swift; sourceTree = "<group>"; };
 		BDEC01A82C94E0A900B9E97D /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
-		BDEC01AB2C94E2AF00B9E97D /* SegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
 		BDEC01AE2C959F6300B9E97D /* SegmentPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentPickerView.swift; sourceTree = "<group>"; };
 		BDEC01B02C959F7000B9E97D /* BikeStationsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeStationsContentView.swift; sourceTree = "<group>"; };
 		BDEC01B22C959F9000B9E97D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -114,11 +112,10 @@
 			children = (
 				BD62B2F42C94A76000ED1DBE /* State */,
 				BDD506542C93A0CF0005B340 /* BikeStationsView.swift */,
-				BD62B2E92C94A27000ED1DBE /* ErrorView.swift */,
-				BD62B2EB2C94A2C000ED1DBE /* BikeStationRow.swift */,
-				BDEC01AB2C94E2AF00B9E97D /* SegmentControl.swift */,
-				BDEC01AE2C959F6300B9E97D /* SegmentPickerView.swift */,
 				BDEC01B02C959F7000B9E97D /* BikeStationsContentView.swift */,
+				BD62B2EB2C94A2C000ED1DBE /* BikeStationRow.swift */,
+				BDEC01AE2C959F6300B9E97D /* SegmentPickerView.swift */,
+				BD62B2E92C94A27000ED1DBE /* ErrorView.swift */,
 				BDEC01B22C959F9000B9E97D /* LoadingView.swift */,
 			);
 			path = View;
@@ -392,7 +389,6 @@
 				BDEC01BA2C95BE2700B9E97D /* ErrorType.swift in Sources */,
 				BD62B2EC2C94A2C000ED1DBE /* BikeStationRow.swift in Sources */,
 				BDD506552C93A0CF0005B340 /* BikeStationsView.swift in Sources */,
-				BDEC01AC2C94E2AF00B9E97D /* SegmentControl.swift in Sources */,
 				BDD506812C93A1450005B340 /* AppState.swift in Sources */,
 				BDD5067D2C93A0E30005B340 /* NetworkService.swift in Sources */,
 				BDD5067F2C93A11E0005B340 /* LocationService.swift in Sources */,

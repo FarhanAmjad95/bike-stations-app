@@ -32,7 +32,6 @@
 		BDEC01B32C959F9000B9E97D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01B22C959F9000B9E97D /* LoadingView.swift */; };
 		BDEC01B52C95A72500B9E97D /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01B42C95A72500B9E97D /* ViewModelProtocol.swift */; };
 		BDEC01BA2C95BE2700B9E97D /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01B92C95BE2700B9E97D /* ErrorType.swift */; };
-		BDEC01BD2C95E9DE00B9E97D /* swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BDEC01BC2C95E9DE00B9E97D /* swiftlint.yml */; };
 		BDEC01BF2C95EC2600B9E97D /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEC01BE2C95EC2600B9E97D /* TestConstants.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,7 +81,6 @@
 		BDEC01B22C959F9000B9E97D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		BDEC01B42C95A72500B9E97D /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 		BDEC01B92C95BE2700B9E97D /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
-		BDEC01BC2C95E9DE00B9E97D /* swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftlint.yml; sourceTree = "<group>"; };
 		BDEC01BE2C95EC2600B9E97D /* TestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -195,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				BDD506512C93A0CF0005B340 /* BikeStationsApp */,
-				BDEC01BC2C95E9DE00B9E97D /* swiftlint.yml */,
 				BDEC01AA2C94E0B900B9E97D /* Mocks */,
 				BDD506622C93A0D10005B340 /* BikeStationsAppTests */,
 				BDD5066C2C93A0D10005B340 /* BikeStationsAppUITests */,
@@ -366,7 +363,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDD5065A2C93A0D10005B340 /* Preview Assets.xcassets in Resources */,
-				BDEC01BD2C95E9DE00B9E97D /* swiftlint.yml in Resources */,
 				BDD506572C93A0D10005B340 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

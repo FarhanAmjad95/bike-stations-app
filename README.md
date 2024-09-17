@@ -35,7 +35,7 @@ This SwiftUI-based app provides a dynamic view of bike stations in Vienna, allow
     ```
 
 2. **Open and Run**:
-   - Open `vienna-city-bike-stations-app.xcodeproj` in Xcode.
+   - Open `BikeStationsApp.xcodeproj` in Xcode.
    - Build and run the app on an iOS simulator or device.
 
 3. **Simulate Location**:

@@ -135,9 +135,9 @@ extension BikeStationsViewModel {
     /// Handles changes in the location authorization status
     private func handleAuthorizationStatusChange(_ status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse || status == .authorizedAlways {
-            Task {
-                await requestLocation()
-                await fetchBikeStations()
+            Task { // async let To reduce time
+                async let _ = requestLocation()
+                async let _ = fetchBikeStations()
             }
         } else {
             if selectedSegment == .third {
